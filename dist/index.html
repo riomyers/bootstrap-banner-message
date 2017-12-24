@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Development</title>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="css/bannerMessages.css">
+      <script src="bannerMessages.js"></script>
+  </head>
+  <body>
+  <div class="site-messages hide"></div>
+  <div class="container">
+      <h1>Testing</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At habetur! Et ego id scilicet nesciebam! Sed ut sit, etiamne post mortem coletur? Duo Reges: constructio interrete. Ait enim se, si uratur, Quam hoc suave! dicturum. </p>
+      <p>Utilitatis causa amicitia est quaesita. Istam voluptatem, inquit, Epicurus ignorat? Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Ergo et avarus erit, sed finite, et adulter, verum habebit modum, et luxuriosus eodem modo. Eaedem res maneant alio modo. Sed virtutem ipsam inchoavit, nihil amplius. </p>
+      <p>Illa tamen simplicia, vestra versuta. At enim hic etiam dolore. Quia dolori non voluptas contraria est, sed doloris privatio. Vitiosum est enim in dividendo partem in genere numerare. Certe non potest. Nulla erit controversia. </p>
+      <p>Atqui reperies, inquit, in hoc quidem pertinacem; Videmusne ut pueri ne verberibus quidem a contemplandis rebus perquirendisque deterreantur? Nonne videmus quanta perturbatio rerum omnium consequatur, quanta confusio? Ergo opifex plus sibi proponet ad formarum quam civis excellens ad factorum pulchritudinem? Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Haec quo modo conveniant, non sane intellego. Est enim effectrix multarum et magnarum voluptatum. Habes, inquam, Cato, formam eorum, de quibus loquor, philosophorum. </p>
+  </div>
+  <script>
+      var messages = [
+          {
+              id: 1,
+              title: 'Check out our <a href="#" target="_blank">new site</a>',
+              message: 'We are redesigning our current website with you in mind. The new website will present you with a more engaging story about the SEI and its work. We invite you to check out the <a href="#" target="_blank">new site</a> and <a href="#">give us feedback</a>.',
+              cssClass: "success",
+              ctaText: 'Find Out More',
+              ctaLink: 'https://www.google.com',
+              active: true,
+              timeStart: 'Dec 20, 2017 17:12:00',
+              timeUpdated: 'Dec 23, 2017 6:32:00',
+              timeEnd: 'Dec 25, 2017 17:17:00',
+              timeCached: null,
+              hidden: false
+          },
+          {
+              id: 2,
+              title: "Title for message 2",
+              message: "This is a message 2.",
+              cssClass: "danger",
+              ctaText: "Find Out More",
+              ctaLink: "https://www.google.com",
+              active: true,
+              timeStart: 'Dec 19, 2017 17:12:00',
+              timeUpdated: 'Dec 23, 2017 6:32:00',
+              timeEnd: 'Dec 25, 2017 17:12:00',
+              timeCached: null,
+              hidden: false
+          }
+      ];
+
+      var banners = new BannerMessages({
+          messages: messages,
+          target: 'site-messages'
+      })
+  </script>
+  </body>
+</html>

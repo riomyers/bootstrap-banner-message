@@ -1,0 +1,40 @@
+{
+  "name": "bootstrap-banner-message",
+  "version": "1.0.0",
+  "description": "A banner message library to display dismissible, site-wide messages during a specified time period.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp",
+    "start": "gulp clean && gulp && http-server ./dist -p 9000",
+    "watch": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w8s/bootstrap-banner-message.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "banner",
+    "message",
+    "cache"
+  ],
+  "author": "Todd Waits",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w8s/bootstrap-banner-message/issues"
+  },
+  "homepage": "https://github.com/w8s/bootstrap-banner-message#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-sass": "^3.1.0",
+    "http-server": "^0.10.0",
+    "path": "^0.12.7"
+  }
+}

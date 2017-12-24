@@ -1,0 +1,26 @@
+.site-message {
+  color: white;
+  border-radius: 0;
+  margin: 0; }
+  .site-message .btn-outline-primary {
+    color: white;
+    border-color: white; }
+    .site-message .btn-outline-primary:hover {
+      background-color: white; }
+  .site-message.alert-success {
+    background-color: #008855;
+    border-color: #224433; }
+    .site-message.alert-success .btn-outline-primary:hover {
+      color: #008855; }
+  .site-message.alert-danger {
+    background-color: #006677;
+    border-color: #224477; }
+    .site-message.alert-danger .btn-outline-primary:hover {
+      color: #006677; }
+  .site-message p a, .site-message h4 a {
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.9); }
+    .site-message p a:hover, .site-message h4 a:hover {
+      color: white;
+      text-decoration: none;
+      border-bottom: none; }
