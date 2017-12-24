@@ -17,7 +17,7 @@ Made to work with [Bootstrap 4](https://getbootstrap.com/), [jQuery 3](https://j
 
 ## Install
 
-Include JavaScript and CSS resources where appropriate:
+Include JavaScript and CSS resources from the `dist` directory where appropriate on your server:
 
 ```html
 <link rel="stylesheet" href="css/bannerMessages.css">
