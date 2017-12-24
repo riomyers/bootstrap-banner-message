@@ -5,6 +5,10 @@ $color-teal: rgb(0, 102, 119);
 $color-blue: rgb(34, 68, 119);
 $color-white-alpha-9: rgba(255, 255, 255, .9);
 
+.hide {
+  display: none;
+}
+
 .site-message {
   color: $color-white;
   border-radius: 0;
