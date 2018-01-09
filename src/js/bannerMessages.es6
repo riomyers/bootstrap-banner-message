@@ -113,28 +113,29 @@ function BannerMessages (options) {
         if (messageEls.length > 0) {
             messageEls.forEach(el => targetNode.insertAdjacentHTML('beforeend', el));
             targetNode.classList.remove('hide');
-            Array.prototype.forEach.call(targetNode.childNodes, function (el) {
-                el.querySelector('.container > button.close').addEventListener('click', {
-                    handleEvent: function (e) {
-                        let alert = e.target.parentElement.parentElement;
-                        let id = parseInt(alert.dataset[self.dataTarget]);
-                        console.log("clicked", id);
-                        self.messages.map(function (v) {
-                            if (v.id === id) {
-                                v.hidden = true;
-                                v.timeCached = new Date().getTime();
-                                self.updateCacheItem(v);
+
+            function closeHandler(self) {
+
+                return function (el) {
+                    el.querySelector('.container > button.close').addEventListener('click', {
+                        handleEvent: function (e) {
+                            let alert = e.target.parentElement.parentElement;
+                            let id = parseInt(alert.dataset[self.dataTarget]);
+                            self.messages.map(function (v) {
+                                if (v.id === id) {
+                                    v.hidden = true;
+                                    v.timeCached = new Date().getTime();
+                                    self.updateCacheItem(v);
+                                    return v;
+                                }
                                 return v;
-                            }
-                            return v;
-                        });
-                        if (alert.parentElement != null) {
-                            console.log('removing listener');
-                            alert.parentElement.removeChild(alert);
+                            });
                         }
-                    }
-                }, true);
-            });
+                    }, true);
+                }
+            }
+
+            Array.prototype.forEach.call(targetNode.childNodes, closeHandler(this));
         } else {
             targetNode.classList.add('hide');
         }
