@@ -1,3 +1,6 @@
+.hide {
+  display: none; }
+
 .site-message {
   color: white;
   border-radius: 0;

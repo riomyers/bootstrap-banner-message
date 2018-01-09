@@ -56,7 +56,9 @@ function BannerMessages (options) {
             }
 
             messageArr.forEach(updateClosure(this, cacheArr));
-            this.updateMessageDom(cacheArr);
+            
+            this.setCache(this.cacheName, messageArr);
+            this.updateMessageDom(messageArr);
         } else {
             if (cacheArr != null) {
                 this.clearCache(this.cacheName);
