@@ -4,12 +4,12 @@ const babel = require('gulp-babel');
 const sass = require('gulp-sass');
 const clean = require('gulp-clean');
 
-gulp.task('default', ['babel', 'sass', 'html'], function() {
+gulp.task('default', ['babel', 'sass', 'html', 'css'], function() {
     return gulp.src('./tmp/**/*')
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('deploy', function() {
+gulp.task('deploy', ['css'], function() {
     return gulp.src('./tmp/**/*')
         .pipe(gulp.dest('./dist/'));
 });
@@ -31,6 +31,11 @@ gulp.task('babel', function(){
 gulp.task('sass', function () {
     return gulp.src('./src/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./tmp/css'));
+});
+
+gulp.task('css', function () {
+    return gulp.src('./src/scss/**/*.css')
         .pipe(gulp.dest('./tmp/css'));
 });
 
