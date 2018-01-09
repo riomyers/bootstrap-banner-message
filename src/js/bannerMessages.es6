@@ -46,8 +46,9 @@ function BannerMessages (options) {
 
                         if (messageUpdate >= cacheTime) {
                             self.updateCacheItem(value);
+                            return value;
                         } else {
-                            value = cache;
+                            return cache;
                         }
                     }
                 }
@@ -55,10 +56,10 @@ function BannerMessages (options) {
                 return updateForEach;
             }
 
-            messageArr.forEach(updateClosure(this, cacheArr));
-            
-            this.setCache(this.cacheName, messageArr);
-            this.updateMessageDom(messageArr);
+            let updatedMessages = messageArr.map(updateClosure(this, cacheArr));
+
+            this.setCache(this.cacheName, updatedMessages);
+            this.updateMessageDom(updatedMessages);
         } else {
             if (cacheArr != null) {
                 this.clearCache(this.cacheName);
@@ -112,35 +113,33 @@ function BannerMessages (options) {
         if (messageEls.length > 0) {
             messageEls.forEach(el => targetNode.insertAdjacentHTML('beforeend', el));
             targetNode.classList.remove('hide');
+            Array.prototype.forEach.call(targetNode.childNodes, function (el) {
+                el.querySelector('.container > button.close').addEventListener('click', {
+                    handleEvent: function (e) {
+                        let alert = e.target.parentElement.parentElement;
+                        let id = parseInt(alert.dataset[self.dataTarget]);
+                        console.log("clicked", id);
+                        self.messages.map(function (v) {
+                            if (v.id === id) {
+                                v.hidden = true;
+                                v.timeCached = new Date().getTime();
+                                self.updateCacheItem(v);
+                                return v;
+                            }
+                            return v;
+                        });
+                        if (alert.parentElement != null) {
+                            console.log('removing listener');
+                            alert.parentElement.removeChild(alert);
+                        }
+                    }
+                }, true);
+            });
         } else {
             targetNode.classList.add('hide');
         }
 
         this.cache = this.getCache(this.cacheName);
     };
-
-    function onReadyClosure(self) {
-        function onReady() {
-            $(self.messageTarget).on('closed.bs.alert', function (e) {
-                    let id = parseInt(e.target.dataset[self.dataTarget]);
-                    self.messages.map(function (v) {
-                        if (v.id === id) {
-                            v.hidden = true;
-                            v.timeCached = new Date().getTime();
-                            self.updateCacheItem(v);
-                            return v;
-                        }
-                        return v;
-                    });
-                });
-        }
-
-        return onReady;
-    }
-
-    this.updateCache(this.messages, this.cache);
-
-    // On Document Ready, set event listeners for Bootstrap alerts.
-    // $(onReadyClosure(this));
-    document.addEventListener("DOMContentLoaded", onReadyClosure(this));
+    document.addEventListener("DOMContentLoaded", this.updateCache(this.messages, this.cache));
 }
