@@ -5,7 +5,7 @@
   color: white;
   border-radius: 0;
   margin: 0; }
-  .site-message h1, .site-message h2, .site-message h3, .site-message h4, .site-message h5, .site-message h6 {
+  .site-message h1, .site-message h2, .site-message h3, .site-message h4, .site-message h5, .site-message h6, .site-message p {
     color: white; }
   .site-message.alert {
     position: relative;
