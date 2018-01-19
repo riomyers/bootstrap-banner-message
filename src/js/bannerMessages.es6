@@ -131,7 +131,7 @@ function BannerMessages (options) {
                                 return v;
                             });
                         }
-                    }, true);
+                    }, false);
                 }
             }
 
