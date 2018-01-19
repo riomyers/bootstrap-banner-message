@@ -111,7 +111,7 @@ function BannerMessages(options) {
                 return function (el) {
                     el.querySelector('.container > button.close').addEventListener('click', {
                         handleEvent: function handleEvent(e) {
-                            var alert = e.target.parentElement.parentElement;
+                            var alert = e.currentTarget.parentElement.parentElement;
                             var id = parseInt(alert.dataset[self.dataTarget]);
                             self.messages.map(function (v) {
                                 if (v.id === id) {
