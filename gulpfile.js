@@ -23,7 +23,9 @@ gulp.task('watch:all', ['watch:sass', 'watch:js', 'watch:html']);
 gulp.task('babel', function(){
     return gulp.src('./src/js/**/*.es6')
         .pipe(babel({
-            presets: ['env']
+            presets: [['env', {
+                    browsers: ['last 2 versions', 'ie 10']
+            }]]
         }))
         .pipe(gulp.dest('./tmp/'));
 });

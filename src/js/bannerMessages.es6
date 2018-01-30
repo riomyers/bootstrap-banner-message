@@ -106,7 +106,7 @@ function BannerMessages (options) {
             return item.active && !item.hidden && Date.parse(item.timeStart) < now  && Date.parse(item.timeEnd) > now;
         }).map(mapClosure(this));
 
-        document.querySelectorAll(this.messageTarget).forEach(n => n.parentNode.removeChild(n));
+        Array.prototype.forEach.call(document.querySelectorAll(this.messageTarget), n => n.parentNode.removeChild(n));
 
         let targetNode = document.querySelector(this.target);
 
@@ -120,7 +120,7 @@ function BannerMessages (options) {
                     el.querySelector('.container > button.close').addEventListener('click', {
                         handleEvent: function (e) {
                             let alert = e.currentTarget.parentElement.parentElement;
-                            let id = parseInt(alert.dataset[self.dataTarget]);
+                            let id = parseInt(alert.getAttribute('data-' + self.dataTarget));
                             self.messages.map(function (v) {
                                 if (v.id === id) {
                                     v.hidden = true;
